@@ -1,0 +1,68 @@
+{
+  "cool_down_sequence": [
+    {
+      "step": 1,
+      "title": "Grounding — Feel Your Body",
+      "gesture": "Place both feet flat on the floor, press your toes down slightly, and feel the ground supporting you.",
+      "primary_phrase": "I am here, right now. I am safe in my space.",
+      "mantra_group": "grounding_safety"
+    },
+    {
+      "step": 2,
+      "title": "Reclaiming Your Worth",
+      "gesture": "Place one hand gently on your chest over your heart. Feel your heartbeat.",
+      "primary_phrase": "My heart is still kind. I spoke with care, and that matters.",
+      "mantra_group": "self_worth_detachment"
+    },
+    {
+      "step": 3,
+      "title": "Releasing Their Energy",
+      "gesture": "With your other hand, sweep outward as if brushing away dust or smoke from your body.",
+      "primary_phrase": "I let go of what isn’t mine to carry.",
+      "mantra_group": "release_letgo"
+    },
+    {
+      "step": 4,
+      "title": "Resetting Your Breath",
+      "gesture": "Breathe in slowly through your nose, relax your shoulders, and exhale through your mouth.",
+      "primary_phrase": "I breathe in peace… I breathe out pain.",
+      "mantra_group": "grounding_safety"
+    },
+    {
+      "step": 5,
+      "title": "Self-Compassion and Closure",
+      "gesture": "Keep your hand on your chest or wrap your arms around yourself in a light hug.",
+      "primary_phrase": "That was hard, and I’m proud of how I handled it. I choose quiet now. I’m taking care of me.",
+      "mantra_group": "recentering_selfcompassion"
+    }
+  ],
+  "mantras": {
+    "grounding_safety": [
+      "I am safe now. I’m allowed to step away.",
+      "Their reaction is over there; my calm is over here.",
+      "I can breathe again. My body doesn’t have to keep fighting.",
+      "This moment will pass — I’ve gotten through worse."
+    ],
+    "self_worth_detachment": [
+      "Their anger isn’t proof I did something wrong.",
+      "I spoke from honesty and care — that’s all I can control.",
+      "It’s okay if they don’t understand me; I still understand myself.",
+      "I am worthy of respect even when others don’t show it.",
+      "I don’t need to earn peace by explaining myself."
+    ],
+    "release_letgo": [
+      "I don’t have to carry their words with me.",
+      "That conversation belongs to the past now.",
+      "I can let the storm pass without joining it.",
+      "I release the guilt that isn’t mine.",
+      "I choose quiet over chaos right now."
+    ],
+    "recentering_selfcompassion": [
+      "That hurt, and I can comfort myself gently.",
+      "I’m learning new ways to protect my peace.",
+      "I’m proud of myself for recognizing the pattern.",
+      "I deserve kind communication — even from myself.",
+      "Every time I step away instead of explode, I’m healing."
+    ]
+  }
+}

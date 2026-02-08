@@ -1,0 +1,144 @@
+{
+  "guided_reframing_meditations": [
+    {
+      "id": 1,
+      "pattern": "Control over Connection",
+      "emotion_target": "tightness, pressure in the chest, anxiety around authority",
+      "guided_awareness": [
+        "Notice where you feel the urge to defend or explain yourself.",
+        "Breathe into that space and ask softly, 'What part of me wants to be safe here?'"
+      ],
+      "reframing_affirmations": [
+        "I can be connected without surrendering my freedom.",
+        "I am safe to be myself even if someone disagrees."
+      ],
+      "gesture_anchor": "Place both hands over your heart and feel your chest rise as you breathe in."
+    },
+    {
+      "id": 2,
+      "pattern": "Invalidation of Feelings",
+      "emotion_target": "sadness, heaviness in throat, urge to shut down",
+      "guided_awareness": [
+        "Feel where your body holds the unsaid words.",
+        "Let a small sound or sigh release from your throat."
+      ],
+      "reframing_affirmations": [
+        "My emotions are signals, not flaws.",
+        "Every feeling is a valid part of my truth."
+      ],
+      "gesture_anchor": "Rest one hand on your throat and one on your heart as you breathe gently."
+    },
+    {
+      "id": 3,
+      "pattern": "Rigid Right/Wrong Thinking",
+      "emotion_target": "mental tension, pressure behind eyes, frustration",
+      "guided_awareness": [
+        "Notice your breath when you feel the need to be right or understood.",
+        "Ask yourself, 'What would it feel like if both views could exist?'"
+      ],
+      "reframing_affirmations": [
+        "I can hold space for difference without losing my center.",
+        "Truth is spacious — I don’t need to win to be seen."
+      ],
+      "gesture_anchor": "Open your palms outward, symbolizing room for multiple truths."
+    },
+    {
+      "id": 4,
+      "pattern": "Shame as Discipline",
+      "emotion_target": "stomach tightness, sinking chest, self-blame",
+      "guided_awareness": [
+        "Feel where shame sits in your body.",
+        "Place warmth there with your hand and say, 'You’re safe to exist.'"
+      ],
+      "reframing_affirmations": [
+        "I release the belief that I must suffer to be good.",
+        "I learn through kindness, not punishment."
+      ],
+      "gesture_anchor": "One hand on belly, one on heart — breathe compassion between them."
+    },
+    {
+      "id": 5,
+      "pattern": "Conditional Love",
+      "emotion_target": "loneliness, emptiness in chest, fear of rejection",
+      "guided_awareness": [
+        "Remember a time you felt you had to earn approval.",
+        "Whisper to yourself, 'I was already enough.'"
+      ],
+      "reframing_affirmations": [
+        "I am worthy of love without performance.",
+        "My value is not conditional on anyone’s approval."
+      ],
+      "gesture_anchor": "Wrap your arms around yourself in a gentle hug."
+    },
+    {
+      "id": 6,
+      "pattern": "Disrespect for Boundaries",
+      "emotion_target": "anger, tight shoulders, feeling invaded or tense",
+      "guided_awareness": [
+        "Notice the space around your body — imagine a calm protective field.",
+        "Say silently, 'It’s safe to have space.'"
+      ],
+      "reframing_affirmations": [
+        "My boundaries are acts of love, not rejection.",
+        "I can be kind and firm at the same time."
+      ],
+      "gesture_anchor": "Visualize a soft light bubble around your body while breathing steadily."
+    },
+    {
+      "id": 7,
+      "pattern": "Projection / Blame",
+      "emotion_target": "confusion, guilt, questioning your reality",
+      "guided_awareness": [
+        "Notice any heaviness that isn’t truly yours.",
+        "Ask gently, 'Whose emotion am I carrying right now?'"
+      ],
+      "reframing_affirmations": [
+        "I am not responsible for what others project.",
+        "I return what is not mine with compassion and clarity."
+      ],
+      "gesture_anchor": "Brush your arms downward from shoulders to hands to release outside energy."
+    },
+    {
+      "id": 8,
+      "pattern": "Rewriting Reality",
+      "emotion_target": "self-doubt, dizziness, feeling gaslit or uncertain",
+      "guided_awareness": [
+        "Anchor into your senses — feel the floor, see the light, name what’s real right now.",
+        "Say, 'My memory and my feelings are trustworthy guides.'"
+      ],
+      "reframing_affirmations": [
+        "I trust my perception and inner knowing.",
+        "I don’t need their validation to confirm my truth."
+      ],
+      "gesture_anchor": "Touch your forehead lightly, then your heart, to connect mind and intuition."
+    },
+    {
+      "id": 9,
+      "pattern": "Hostility Toward Vulnerability",
+      "emotion_target": "fear, tension in jaw, suppressed tears",
+      "guided_awareness": [
+        "Breathe into your chest and imagine your heart softening.",
+        "Whisper, 'It’s safe to feel.'"
+      ],
+      "reframing_affirmations": [
+        "Vulnerability is courage in motion.",
+        "I can be open and protected at the same time."
+      ],
+      "gesture_anchor": "Rest both palms open over your heart center."
+    },
+    {
+      "id": 10,
+      "pattern": "Silencing and Punishment for Expression",
+      "emotion_target": "fear of speaking, shallow breathing, tension in throat",
+      "guided_awareness": [
+        "Notice your breath and the muscles around your mouth and neck.",
+        "Let a quiet hum or exhale move through your throat to reopen flow."
+      ],
+      "reframing_affirmations": [
+        "My voice deserves gentle space to exist.",
+        "Speaking my truth honors my inner child."
+      ],
+      "gesture_anchor": "Touch your throat gently while breathing slow and steady."
+    }
+  ]
+}

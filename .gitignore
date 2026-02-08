@@ -1,0 +1,28 @@
+# Build artifacts
+**/target/
+**/build/
+HELP.md
+
+# Secrets
+**/ .env
+happy2be/.env
+
+# Maven wrapper
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDEs and Editors
+**/.idea/
+**/.vscode/
+*.iws
+*.iml
+*.ipr
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# OS generated files
+.DS_Store

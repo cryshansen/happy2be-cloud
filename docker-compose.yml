@@ -1,0 +1,37 @@
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: happy2be-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: happy2be
+    ports:
+      - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+  python-api:
+      build: ./happyface  # Points to your Python Dockerfile
+      ports:
+        - "5001:5001"
+  app:
+    build: ./happy2be
+    container_name: happy2be-app
+    depends_on:
+      mysql:
+        condition: service_healthy
+      python-api:
+        condition: service_started
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/happy2be
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_MAIL_HOST: mailhog
+      SPRING_MAIL_PORT: 1025
+

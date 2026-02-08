@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Immersive Cool-Down Ritual</title>
+<style>
+html, body {
+  margin: 0; padding: 0;
+  font-family: 'Helvetica', sans-serif;
+  height: 100%; width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background: linear-gradient(120deg, #f0f4f8, #d9e6f2);
+  overflow: hidden;
+}
+
+.overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.1); z-index:-1; }
+
+.container {
+  border-radius: 25px; padding: 40px 30px;
+  text-align: center; max-width: 500px; width: 90%;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  transition: background-color 0.5s, transform 0.5s;
+  color: #222;
+  position: relative;
+  overflow: hidden;
+}
+
+.breath-circle {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(108, 99, 255, 0.2);
+  z-index: 0;
+  transition: transform 4s ease-in-out, background 4s ease-in-out;
+}
+
+.step-number { font-size: 1.2em; font-weight: bold; color: #333; }
+.step-title { font-size: 2em; margin: 15px 0; position: relative; z-index:1; }
+.gesture { font-style: italic; color: #555; margin: 15px 0; font-size: 1.1em; position: relative; z-index:1; }
+.primary-phrase {
+  font-size: 1.5em; margin: 20px 0; padding: 20px;
+  border-radius: 20px; background-color: rgba(255,255,255,0.8);
+  transition: transform 4s ease-in-out; position: relative; z-index:1;
+}
+.mantra {
+  background-color: rgba(230, 234, 248, 0.7); padding: 15px;
+  border-radius: 15px; margin: 15px 0; cursor: pointer;
+  font-size: 1.2em; opacity: 1; transition: opacity 1s ease; position: relative; z-index:1;
+}
+.buttons { display:flex; justify-content:space-around; margin-top:25px; position: relative; z-index:1; }
+button { background-color: #6c63ff; color:white; border:none; border-radius:15px; padding:12px 20px; cursor:pointer; font-size:1em; }
+button:hover { background-color: #5750d4; }
+.progress { margin-top: 15px; font-size: 1em; color: #666; position: relative; z-index:1; }
+
+/* Step Colors */
+.step-grounding { background-color: #d0e7ff; }
+.step-worth { background-color: #d0ffd6; }
+.step-release { background-color: #e6d0ff; }
+.step-breath { background-color: #c0f0ea; }
+.step-compassion { background-color: #ffd0d8; }
+
+/* Breathing Animation */
+.breath-inhale { transform: scale(1.05); }
+.breath-exhale { transform: scale(1); }
+</style>
+</head>
+<body>
+<div>
+	<h2>✅ What’s New</h2>
+	<p>
+		Breathing circle visualization behind the text expands/contracts with each inhale/exhale.<br/>
+		Color changes subtly with inhale/exhale for calming effect.<br/>
+		Fully synchronized with mantras and breathing pulse.<br/>
+		Existing fade transitions and background music still work. <br/>
+	</p>
+	<p>Next step could be adding optional customizable sounds (rain, stream, wind) and user-selectable breathing speeds for a fully tailored meditation.</p>
+
+</div>
+<div class="overlay"></div>
+
+<div class="container step-grounding">
+  <div class="breath-circle" id="breathCircle"></div>
+
+  <div class="step-number">Step 1 of 5</div>
+  <div class="step-title">Grounding — Feel Your Body</div>
+  <div class="gesture">Place both feet flat on the floor, press your toes down slightly.</div>
+  <div class="primary-phrase">"I am here, right now. I am safe in my space."</div>
+  <div class="mantra">"I am safe now. I’m allowed to step away."</div>
+  
+  <div class="buttons">
+    <button id="prev">Previous</button>
+    <button id="next">Next Step</button>
+    <button id="toggleAuto">🔊 Auto Mantra On</button>
+    <button id="toggleMusic">🎵 Music On</button>
+  </div>
+  <div class="progress">Step 1 / 5</div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const steps = [
+  {title:"Grounding — Feel Your Body", gesture:"Place both feet flat on the floor, press your toes down slightly.", primary_phrase:"I am here, right now. I am safe in my space.", mantras:["I am safe now. I’m allowed to step away.","Their reaction is over there; my calm is over here.","I can breathe again. My body doesn’t have to keep fighting.","This moment will pass — I’ve gotten through worse."], class:"step-grounding"},
+  {title:"Reclaiming Your Worth", gesture:"Place one hand gently on your chest over your heart.", primary_phrase:"My heart is still kind. I spoke with care, and that matters.", mantras:["Their anger isn’t proof I did something wrong.","I spoke from honesty and care — that’s all I can control.","It’s okay if they don’t understand me; I still understand myself.","I am worthy of respect even when others don’t show it.","I don’t need to earn peace by explaining myself."], class:"step-worth"},
+  {title:"Releasing Their Energy", gesture:"With your other hand, sweep outward as if brushing away dust or smoke from your body.", primary_phrase:"I let go of what isn’t mine to carry.", mantras:["I don’t have to carry their words with me.","That conversation belongs to the past now.","I can let the storm pass without joining it.","I release the guilt that isn’t mine.","I choose quiet over chaos right now."], class:"step-release"},
+  {title:"Resetting Your Breath", gesture:"Breathe in slowly through your nose, relax your shoulders, and exhale through your mouth.", primary_phrase:"I breathe in peace… I breathe out pain.", mantras:["I am safe now. I’m allowed to step away.","I can let the storm pass without joining it."], class:"step-breath"},
+  {title:"Self-Compassion and Closure", gesture:"Keep your hand on your chest or wrap your arms around yourself in a light hug.", primary_phrase:"That was hard, and I’m proud of how I handled it. I choose quiet now. I’m taking care of me.", mantras:["That hurt, and I can comfort myself gently.","I’m learning new ways to protect my peace.","I’m proud of myself for recognizing the pattern.","I deserve kind communication — even from myself.","Every time I step away instead of explode, I’m healing."], class:"step-compassion"}
+];
+
+let currentStep = 0;
+let currentMantra = 0;
+let autoMantra = true;
+let musicOn = false;
+
+const container = document.querySelector('.container');
+const stepTitle = document.querySelector('.step-title');
+const gesture = document.querySelector('.gesture');
+const primaryPhrase = document.querySelector('.primary-phrase');
+const mantraDiv = document.querySelector('.mantra');
+const stepNo = document.querySelector('.step-number');
+const progress = document.querySelector('.progress');
+const toggleAutoBtn = document.getElementById('toggleAuto');
+const toggleMusicBtn = document.getElementById('toggleMusic');
+const bgMusic = document.getElementById('bgMusic');
+const breathCircle = document.getElementById('breathCircle');
+
+let breathingInterval;
+
+function updateStep(){
+  const step = steps[currentStep];
+  container.className = `container ${step.class}`;
+  stepTitle.textContent = step.title;
+  gesture.textContent = step.gesture;
+  primaryPhrase.textContent = step.primary_phrase;
+  currentMantra = 0;
+  mantraDiv.textContent = step.mantras[currentMantra];
+  progress.textContent = `Step ${currentStep + 1} / ${steps.length}`;
+  stepNo.textContent =  `Step ${currentStep + 1} of ${steps.length}`;
+  startBreathingCycle();
+}
+
+document.getElementById('next').addEventListener('click', () => { if(currentStep < steps.length-1){ currentStep++; updateStep(); } });
+document.getElementById('prev').addEventListener('click', () => { if(currentStep >0){ currentStep--; updateStep(); } });
+mantraDiv.addEventListener('click', () => { nextMantra(); });
+
+toggleAutoBtn.addEventListener('click', () => { autoMantra = !autoMantra; toggleAutoBtn.textContent = autoMantra ? "🔊 Auto Mantra On" : "🔇 Auto Mantra Off"; });
+toggleMusicBtn.addEventListener('click', () => {
+  musicOn = !musicOn;
+  if(musicOn){ bgMusic.play(); toggleMusicBtn.textContent = "🎵 Music On"; }
+  else{ bgMusic.pause(); toggleMusicBtn.textContent = "🔇 Music Off"; }
+});
+
+function nextMantra(){
+  const step = steps[currentStep];
+  mantraDiv.style.opacity = 0;
+  setTimeout(() => {
+    currentMantra = (currentMantra + 1) % step.mantras.length;
+    mantraDiv.textContent = step.mantras[currentMantra];
+    if(autoMantra) speakMantra(step.mantras[currentMantra]);
+    mantraDiv.style.opacity = 1;
+  }, 800);
+}
+
+function speakMantra(text){ const utter = new SpeechSynthesisUtterance(text); window.speechSynthesis.speak(utter); }
+
+function startBreathingCycle(){
+  clearInterval(breathingInterval);
+  const phrase = primaryPhrase;
+  let inhale = true;
+  const step = steps[currentStep];
+  let mantraIndex = currentMantra;
+
+  breathingInterval = setInterval(() => {
+    // Pulse primary phrase
+    phrase.classList.toggle('breath-inhale', inhale);
+    phrase.classList.toggle('breath-exhale', !inhale);
+
+    // Animate circle
+    breathCircle.style.transform = inhale ? 'translate(-50%,-50%) scale(1.5)' : 'translate(-50%,-50%) scale(1)';
+    breathCircle.style.background = inhale ? 'rgba(108,99,255,0.25)' : 'rgba(108,99,255,0.15)';
+
+    // Fade + play mantra on inhale
+    if(inhale && autoMantra){
+      mantraDiv.style.opacity = 0;
+      setTimeout(() => {
+        mantraDiv.textContent = step.mantras[mantraIndex];
+        speakMantra(step.mantras[mantraIndex]);
+        mantraDiv.style.opacity = 1;
+        mantraIndex = (mantraIndex + 1) % step.mantras.length;
+      }, 800);
+    }
+
+    inhale = !inhale;
+  }, 4000);
+}
+
+// Initialize
+updateStep();
+</script>
+</body>
+</html>

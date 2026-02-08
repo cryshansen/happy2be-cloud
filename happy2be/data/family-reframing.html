@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guided Reframing Meditations</title>
+<style>
+  body {
+    font-family: "Poppins", sans-serif;
+    margin: 0; padding: 0;
+    background: linear-gradient(180deg, #cbe9e0, #f8fafb);
+    color: #333;
+    transition: background 1s ease;
+  }
+  h1 { text-align: center; padding: 1rem; }
+  .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem; }
+  .card {
+    background: #fff; border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 1rem 1.5rem; max-width: 280px;
+    cursor: pointer; transition: transform 0.3s ease;
+  }
+  .card:hover { transform: scale(1.03); }
+  #meditation-view { display: none; text-align: center; padding: 2rem; animation: fadein 1s ease; }
+  @keyframes fadein { from {opacity: 0;} to {opacity: 1;} }
+  .phase-text { margin: 1rem auto; font-size: 1.1em; line-height: 1.6; max-width: 600px; }
+  .gesture { font-style: italic; color: #555; }
+  .affirmations { margin-top: 1.5rem; font-weight: 500; }
+  .back-btn { margin-top: 1rem; background: #6ec3b8; color: white; border: none; padding: 0.6rem 1rem; border-radius: 10px; cursor: pointer; }
+  audio { margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<h1>🌿 Guided Reframing Meditations</h1>
+<div id="pattern-list" class="container"></div>
+<div id="meditation-view">
+  <h2 id="pattern-title"></h2>
+  <p id="pattern-desc"></p>
+  <div id="phase-section">
+    <h3 id="phase-title"></h3>
+    <p class="phase-text" id="phase-script"></p>
+    <p class="gesture" id="phase-gesture"></p>
+  </div>
+  <div class="affirmations" id="affirmations"></div>
+  <audio id="background-music" controls loop></audio><br>
+  <button class="back-btn" onclick="backToList()">Back</button>
+</div>
+
+<script>
+let meditations = [];
+let current = 0, phaseIndex = 0;
+
+async function loadMeditations() {
+  const res = await fetch('meditation-unhealthy-patterns.json');
+  meditations = await res.json();
+  renderList();
+}
+
+function renderList() {
+  const list = document.getElementById('pattern-list');
+  list.innerHTML = meditations.guided_reframing_sequences.map((m, i) =>
+    `<div class="card" onclick="startMeditation(${i})">
+      <h3>${m.pattern_info.title}</h3>
+      <p>${m.pattern_info.description}</p>
+    </div>`
+  ).join('');
+}
+
+function startMeditation(index) {
+  current = meditations.guided_reframing_sequences[index];
+  phaseIndex = 0;
+  document.getElementById('pattern-list').style.display = 'none';
+  document.getElementById('meditation-view').style.display = 'block';
+  playPhase();
+}
+
+function playPhase() {
+  const phase = current.phases[phaseIndex];
+  document.getElementById('pattern-title').textContent = current.pattern_info.title;
+  document.getElementById('pattern-desc').textContent = current.pattern_info.description;
+  document.getElementById('phase-title').textContent = `Phase: ${phase.phase}`;
+  document.getElementById('phase-script').textContent = phase.script;
+  document.getElementById('phase-gesture').textContent = `Gesture: ${phase.gesture}`;
+  document.getElementById('affirmations').textContent = current.affirmations.join(" • ");
+  
+  // load music
+  const audio = document.getElementById('background-music');
+  audio.src = `${current.suggested_music}.mp3`; // placeholder
+  
+  // Auto advance phase
+  setTimeout(() => {
+    phaseIndex++;
+    if (phaseIndex < current.phases.length) playPhase();
+  }, phase.duration_seconds * 1000);
+}
+
+function backToList() {
+  document.getElementById('meditation-view').style.display = 'none';
+  document.getElementById('pattern-list').style.display = 'flex';
+}
+loadMeditations();
+</script>
+
+</body>
+</html>

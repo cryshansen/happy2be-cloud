@@ -1,0 +1,42 @@
+{
+	
+	"lead": "You don’t have to win or justify yourself in the moment — you only need to exit with calm and self-respect. Here are some ways to do that:",
+	"exits":[
+				{
+					"purpose_type": "Neutral exits",
+					"purpose_feeling": "tense",
+					"purpose_title": "Neutral exits (for tense conversations):",
+					"phrases" : [
+						
+									{	"phrase": "Let’s take a break from this — it’s getting heated."  },		
+									{	"phrase": "I don’t think we’re hearing each other right now. I’m going to step away." },
+									{	"phrase": "I’d like to pause here before we say things we can’t take back." }
+							]
+				},{
+					"purpose_type": "Boundary exits",
+					"purpose_feeling": "mockery dissmissed",
+					"purpose_title": "Boundary exits (when you’re being mocked or dismissed):",					
+					"phrases" : [
+										
+								{ "phrase":"I’m not comfortable with how this is going, so I’m stopping this conversation." },
+								{ "phrase": "I don’t deserve to be spoken to like that, so I’m going to go." },
+								{ "phrase" : "If we can talk respectfully later, I’ll be open to that." }
+				
+							]
+				
+				
+				},{
+					"purpose_type": "Gentle self-protection exit",
+					"purpose_feeling": "polite firm",
+					"purpose_title": "Gentle self-protection (if you want to stay polite but firm):",
+					"phrases" : [
+								{	"phrase": "I hear that you disagree. Let’s just leave it there."},
+								{	"phrase":"We see it differently, and that’s okay. I’m not going to argue."},
+								{	"phrase": "I care about you, but this topic isn’t healthy for me right now."}
+						]
+				}
+	],
+		
+	"paragraph":"After you leave, do something grounding — walk, breathe, pet your dog, write down what happened — anything that helps your body know the danger is over. That’s how you start healing instead of carrying their energy around all day."
+
+}

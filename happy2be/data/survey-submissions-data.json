@@ -1,0 +1,11 @@
+{
+  "date": "2025-10-31",
+  "mood_rating": 4,
+  "triggers": ["Feeling judged", "Work stress"],
+  "emotions": {
+    "anxiety": 7,
+    "sadness": 5,
+    "joy": 2
+  },
+  "notes": "Had a tense meeting with my manager"
+}

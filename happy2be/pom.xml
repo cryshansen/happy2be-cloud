@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.artogco</groupId>
+	<artifactId>happy2be</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>happy2be</name>
+	<description>Happy Chat Spring Boot</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<repositories>
+		<repository>
+			<id>djl-ai</id>
+			<url>https://oss.sonatype.org/content/repositories/releases/</url>
+		</repository>
+	</repositories>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		 <!-- JPA -->
+     <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+      <!-- 🔹 Database -->
+	    <dependency>
+	      <groupId>com.mysql</groupId>
+	      <artifactId>mysql-connector-j</artifactId>
+	      <scope>runtime</scope>
+	    </dependency>
+	
+	    <dependency>
+	      <groupId>com.h2database</groupId>
+	      <artifactId>h2</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	
+	    <!-- 🔹 JSON -->
+	    <dependency>
+	      <groupId>com.fasterxml.jackson.core</groupId>
+	      <artifactId>jackson-databind</artifactId>
+	    </dependency>
+	    
+	    
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	    <dependency>
+	      <groupId>org.mockito</groupId>
+	      <artifactId>mockito-core</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	
+	    <dependency>
+	      <groupId>org.mockito</groupId>
+	      <artifactId>mockito-junit-jupiter</artifactId>
+	      <version>5.17.0</version>
+	      <scope>test</scope>
+	    </dependency>
+	
+	    <dependency>
+	      <groupId>org.junit.jupiter</groupId>
+	      <artifactId>junit-jupiter</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+		<dependency>
+		  <groupId>org.junit.jupiter</groupId>
+		  <artifactId>junit-jupiter-api</artifactId>
+		  <scope>test</scope>
+		</dependency>
+	
+	    <dependency>
+	      <groupId>org.springframework.security</groupId>
+	      <artifactId>spring-security-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+		<!-- PROPERTIES INJECTION -->
+		<dependency>
+		    <groupId>io.github.cdimascio</groupId>
+		    <artifactId>dotenv-java</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
+	<!--  	TESTING SUITES -->
+	
+	    <dependency>
+	      <groupId>org.mockito</groupId>
+	      <artifactId>mockito-core</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+	
+	    <dependency>
+	      <groupId>org.mockito</groupId>
+	      <artifactId>mockito-junit-jupiter</artifactId>
+	      <version>5.17.0</version>
+	      <scope>test</scope>
+	    </dependency>
+	
+	    <dependency>
+	      <groupId>org.junit.jupiter</groupId>
+	      <artifactId>junit-jupiter</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+		<dependency>
+		  <groupId>org.junit.jupiter</groupId>
+		  <artifactId>junit-jupiter-api</artifactId>
+		  <scope>test</scope>
+		</dependency>
+	
+	    <dependency>
+	      <groupId>org.springframework.security</groupId>
+	      <artifactId>spring-security-test</artifactId>
+	      <scope>test</scope>
+	    </dependency>
+
+      <!-- 🔹 Reactor-test -->
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+
+
+
+
+		<dependency>
+			<groupId>ai.djl</groupId>
+			<artifactId>api</artifactId>
+			<version>0.26.0</version>
+		</dependency>
+
+
+		<!-- PyTorch Engine for DJL -->
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-engine</artifactId>
+			<version>0.26.0</version>
+		</dependency>
+
+		<!-- DJL Hugging Face Model Zoo -->
+		<dependency>
+			<groupId>ai.djl.huggingface</groupId>
+			<artifactId>tokenizers</artifactId>
+			<version>0.26.0</version>
+		</dependency>
+		<dependency>
+			<groupId>ai.djl.pytorch</groupId>
+			<artifactId>pytorch-model-zoo</artifactId>
+			<version>0.26.0</version>
+		</dependency>				
+		<dependency>
+			<groupId>ai.djl.tensorflow</groupId>
+			<artifactId>tensorflow-engine</artifactId>
+			<version>0.26.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.opennlp/opennlp-tools -->
+		<dependency>
+			<groupId>org.apache.opennlp</groupId>
+			<artifactId>opennlp-tools</artifactId>
+			<version>2.5.3</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
