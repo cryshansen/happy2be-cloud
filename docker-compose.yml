@@ -1,15 +1,19 @@
 
 services:
-  mysql:
+  db:
     image: mysql:8.0
     container_name: happy2be-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
       MYSQL_DATABASE: happy2be
+      MYSQL_USER: ${DB_USER}   # 2. Creates the app use
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     ports:
       - "3306:3306"
+    # Essential for low-memory e2-micro VMs
+    command: --innodb-buffer-pool-size=64M
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${ROOT_PASSWORD}"]
       interval: 5s
       timeout: 10s
       retries: 5
@@ -29,9 +33,8 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/happy2be
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
-      SPRING_MAIL_HOST: mailhog
-      SPRING_MAIL_PORT: 1025
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/happy2be?allowPublicKeyRetrieval=true&useSSL=false
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+
 
