@@ -1,8 +1,6 @@
 package com.artogco.happy2be.service;
+// REMOVED COMMENTED OUT CODE IS THE HUGGING FACE LIBRARY WHICH HAS A VERSION CONFLICT DELETED AS IT DID NOT WORK AND WE USE PYTHON INSTEAD
 
-//import opennlp.tools.tokenize.SimpleTokenizer;
-//import opennlp.tools.postag.POSModel;
-//import opennlp.tools.postag.POSTaggerME;
 import java.time.Duration;
 import java.util.List;
 import java.util.Map;
@@ -23,32 +21,6 @@ public class NLPService {
     private String openAiApiKey;
     private static final String OPENAI_API_URL = "https://api.openai.com/v1/completions";
 
-
-    //private POSTaggerME posTagger;
-
-   /* public NLPService() {
-        try (InputStream modelIn = getClass().getResourceAsStream("/en-pos-maxent.bin")) {
-           // POSModel model = new POSModel(modelIn);
-            //posTagger = new POSTaggerME(model);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
-
-   /*  public List<String> extractKeywords(String text) {
-        SimpleTokenizer tokenizer = SimpleTokenizer.INSTANCE;
-        String[] tokens = tokenizer.tokenize(text);
-        String[] tags = posTagger.tag(tokens);
-
-        // Extract only nouns & adjectives (NN, JJ)
-        List<String> keywords = new ArrayList<>();
-        for (int i = 0; i < tokens.length; i++) {
-            if (tags[i].startsWith("NN") || tags[i].startsWith("JJ")) {
-                keywords.add(tokens[i].toLowerCase());
-            }
-        }
-        return keywords;
-    }*/
 
     // ✅ Inject API key via constructor
     public NLPService(@Value("${openai.api.key}") String openAiApiKey, WebClient.Builder webClientBuilder) {

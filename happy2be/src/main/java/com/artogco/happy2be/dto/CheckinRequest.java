@@ -1,10 +1,13 @@
 
 package com.artogco.happy2be.dto;
 
+import java.util.UUID;
+
 public class CheckinRequest{
 	
 	private String userText;
 	private String tone;
+	private UUID userId;
 	
 	
 	public String getUserText() {
@@ -23,5 +26,14 @@ public class CheckinRequest{
 		this.tone = tone;
 	}
 	
+	public UUID getUserId() {
+		return userId;
+	}
+
+
+
+	public void setUserId(UUID userId) {
+		this.userId = userId;
+	}
 
 }

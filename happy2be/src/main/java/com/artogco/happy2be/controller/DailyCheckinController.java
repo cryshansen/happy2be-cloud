@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -45,15 +46,18 @@ public class DailyCheckinController {
 
     @PostMapping("/checkin")
     public ResponseEntity<DailyCheckinResponse> processCheckIn(@RequestBody CheckinRequest req) {
-
+    	// Generate a random UUID so the DB is happy
+    	
         SentimentAnalysis sentiment =
             (SentimentAnalysis) emotionService.analyzeText(req.getUserText()); 
 		
 		DailyCheckinResponse  response = responseService.respond(req.getUserText(), sentiment);
+		DailyCheckin entity = DailyCheckin.from(req, sentiment,response);
 		
-		checkinRepository.save(
-				DailyCheckin.from(req, sentiment,response)
-		);
+		if(entity.getUserId()==null) { 
+			entity.setUserId(UUID.randomUUID()); 
+		}
+		checkinRepository.save(entity);
 		
 		return ResponseEntity.ok(response);
     }

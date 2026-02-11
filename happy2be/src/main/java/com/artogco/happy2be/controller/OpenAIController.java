@@ -27,14 +27,14 @@ public class OpenAIController {
     //@Autowired
     //private SentimentAnalyzer sentimentAIService;
     private EmotionService sentimentAIService;
-
+  //convert to a POST methods
     @GetMapping("/ask-happy")
     public String askOpenAI(@RequestParam String prompt) {
         return openAIService.callOpenAI(prompt);
     }
 
 
-    @GetMapping("/happy-ai")
+    @GetMapping("/happy-ai") //this is an example endpoint works well. 
     public ResponseEntity<Map<String, String>> getAIHappy(@RequestParam(value = "category", defaultValue = "general") String category) {
         String fortune = openAIService.getAiHappy(category).block();
         //return openAIService.getAiFortune(category); // a string of the message called message
@@ -42,7 +42,14 @@ public class OpenAIController {
         response.put("happy", fortune); // Wrap it in a JSON-friendly structure
          return ResponseEntity.ok(response);
     }
-/* */
+    /*RESPONSE to /happy-ai endpoint example 
+     * "happy": "Message: \"I feel overwhelmed and like everything is just too much to handle right now. I don't know how to cope with these feelings.\"\n\
+     * nResponse: I'm sorry to hear that you're feeling overwhelmed and struggling to cope with everything right now. It's completely normal to feel this way at times, especially with everything going on in the world. 
+     * It's important to remember that it's okay to not be okay sometimes. It's also important to reach out for support and talk to someone about how you're feeling. You don't have to go through this alone. Is there anything specific that's been weighing on you recently that you'd like to talk about or anything I can do to support you?"*/
+/*
+ * Here we tried to get sentiment from the java library of happy faces but it failed to work and opted for python bc it worked
+ * Here we use predefined which we should try to get a db table with these kinds of sentiments look online for datasets 
+ *  */
    public String analyzeSentiment(String message) {
        /* String sentimentPrompt = """
            Classify the following message as: Positive, Neutral, or Negative.
@@ -99,8 +106,8 @@ public class OpenAIController {
         List<String> possibleResponses = responseDatabase.getOrDefault(sentiment, List.of("Stay strong, face forward and keep moving!"));
         return possibleResponses.get(new Random().nextInt(possibleResponses.size()));
     }
-
-    @GetMapping("/happy-sent")
+  //convert to a POST methods
+    @GetMapping("/happy-sent") 
     //public String generateResponse(String inmessage) {
     public  ResponseEntity<Map<String, String>> generateResponse(@RequestParam(value = "message", defaultValue = "general") String inmessage){
         // Step 1: Get Sentiment

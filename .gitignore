@@ -2,10 +2,12 @@
 **/target/
 **/build/
 HELP.md
+CHEATSHEET.md
 
 # Secrets
 **/ .env
 happy2be/.env
+*.tf
 
 # Maven wrapper
 !.mvn/wrapper/maven-wrapper.jar

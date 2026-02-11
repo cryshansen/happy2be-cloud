@@ -11,7 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 
 import com.artogco.happy2be.dto.*;
 import com.artogco.happy2be.domain.*;
@@ -23,11 +26,13 @@ import com.artogco.happy2be.domain.*;
  */
 @Service
 public class EmotionService {
+	@Value("${api.python.url}")
+	private String pythonApiUrl;
 
     public String analyzeSentiment(String text) {
         try {
             // Flask API URL (check correct port!)
-            URL url = new URL("http://localhost:5000/analyze");
+            URL url = new URL(pythonApiUrl+"/analyze");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
             // Configure HTTP request

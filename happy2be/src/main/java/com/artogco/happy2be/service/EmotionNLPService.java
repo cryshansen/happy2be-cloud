@@ -7,6 +7,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -19,7 +21,8 @@ import reactor.core.publisher.Mono;
 
 @Service
 public class EmotionNLPService {
-
+	@Value("${api.python.url}")
+	private String pythonApiUrl;
     private final NLPService nlpService;
     
     public EmotionNLPService(NLPService nlpService) {
@@ -28,7 +31,7 @@ public class EmotionNLPService {
 
     public String analyzeNLPSentiment(String text, String tone) {
         try {
-            URL url = new URL("http://localhost:5000/analyze");
+            URL url = new URL(pythonApiUrl+"/analyze");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
